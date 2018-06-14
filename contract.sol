@@ -33,6 +33,7 @@ contract Vote {
 
     function vote(uint proposalIndex, bool agree) public {
         require(proposalIndex < proposalCount);
+        require(isParticipant[msg.sender]);
         require(!alreadyVoted[proposalIndex][msg.sender]);
         alreadyVoted[proposalIndex][msg.sender] = true;
         if (agree) {
