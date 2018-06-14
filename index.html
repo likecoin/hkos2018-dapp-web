@@ -6,16 +6,16 @@
 <body>
 <div id="app">
     <div v-if="address" class="address">
-        You are {{ address }}
+        You are {{ address }} ({{ identity }})
     </div>
     <div class="proposal-list">
         <div v-for="(proposal, id) in proposals" class="proposal">
             <div class="proposal-id">ID: {{ id }}</div>
             <div class="proposal-description">Description: {{ proposal.description }}</div>
             <div class="proposal-status">Votes: {{ proposal.agreeCount }} agree, {{ proposal.disagreeCount }} disagree</div>
-            <div v-if="proposal.canVote" class="proposal-voting-buttons">
-                <button v-on:click="vote(id, true)">Agree</button>
-                <button v-on:click="vote(id, false)">Disagree</button>
+            <div class="proposal-voting-buttons">
+                <button :disabled="!isParticipant || proposal.alreadyVoted" v-on:click="vote(id, true)">Agree</button>
+                <button :disabled="!isParticipant || proposal.alreadyVoted" v-on:click="vote(id, false)">Disagree</button>
             </div>
         </div>
     </div>
