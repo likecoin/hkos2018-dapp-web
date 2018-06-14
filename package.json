@@ -1,0 +1,19 @@
+{
+  "name": "hkos2018-dapp-web",
+  "version": "1.0.0",
+  "description": "DApp example for HKOS 2018",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "author": "Chung Wu",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "parcel-bundler": "^1.8.1"
+  },
+  "dependencies": {
+    "vue": "^2.5.16",
+    "web3": "^1.0.0-beta.34"
+  }
+}

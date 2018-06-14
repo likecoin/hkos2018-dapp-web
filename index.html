@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vote</title>
+</head>
+<body>
+<div id="app">
+    <div v-if="address" class="address">
+        You are {{ address }}
+    </div>
+    <div class="proposal-list">
+        <div v-for="(proposal, id) in proposals" class="proposal">
+            <div class="proposal-id">ID: {{ id }}</div>
+            <div class="proposal-description">Description: {{ proposal.description }}</div>
+            <div class="proposal-status">Votes: {{ proposal.agreeCount }} agree, {{ proposal.disagreeCount }} disagree</div>
+            <div v-if="proposal.canVote" class="proposal-voting-buttons">
+                <button v-on:click="vote(id, true)">Agree</button>
+                <button v-on:click="vote(id, false)">Disagree</button>
+            </div>
+        </div>
+    </div>
+    <div v-if="isHost" class="new-proposal">
+        <input v-model="description" type="text"class="new-proposal-description">
+        <button v-on:click="newProposal()">Submit</button>
+    </div>
+</div>
+<script type="application/javascript" src="./index.js"></script>
+</body>
+</html>
