@@ -1,4 +1,4 @@
-This repo is a demo for [HKOS 2018](https://hkoscon.org/2018/).
+This repo is a demo for [HKOSCon 2018](https://hkoscon.org/2018/).
 
 ## Installation
 

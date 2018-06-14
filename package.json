@@ -1,7 +1,7 @@
 {
   "name": "hkos2018-dapp-web",
   "version": "1.0.0",
-  "description": "DApp example for HKOS 2018",
+  "description": "DApp example for HKOSCon 2018",
   "main": "index.js",
   "scripts": {
     "dev": "parcel index.html"
