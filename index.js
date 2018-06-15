@@ -26,6 +26,7 @@ const app = new Vue({
     },
     methods: {
         async refresh() {
+            console.log('Querying Vote contract data...');
             const address = (await web3.eth.getAccounts())[0];
             const proposalCount = Number.parseInt(await Vote.methods.proposalCount().call());
             const proposals = [];
@@ -40,13 +41,18 @@ const app = new Vue({
             this.proposals = proposals;
             this.isHost = isHost;
             this.isParticipant = isParticipant;
+            console.log('Vote contract data updated.');
         },
         async vote(id, agree) {
+            console.log(`Voting for proposal ${id} with value ${agree}...`);
             await Vote.methods.vote(id, agree).send({ from: this.address });
+            console.log('Voting done.');
             app.refresh();
         },
         async newProposal() {
+            console.log(`Creating new proposal, description: '${this.description}'`);
             await Vote.methods.newProposal(this.description).send({ from: this.address });
+            console.log('Proposal created.');
             app.refresh();
         },
     }
